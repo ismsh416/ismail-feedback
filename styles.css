@@ -1,0 +1,281 @@
+:root {
+  --paper: #f5f2ea;
+  --paper-raised: #fbf9f4;
+  --ink: #23201b;
+  --ink-soft: #5c564c;
+  --line: #ddd6c4;
+  --brass: #a2793f;
+  --brass-deep: #7c5a2c;
+  --green: #37503f;
+  --error: #9a4a3a;
+  --radius: 3px;
+  --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+  --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+.mark {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--brass-deep);
+  margin: 0 0 34px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(32px, 6vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+  max-width: 12ch;
+}
+
+.lede {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 0 40px;
+}
+
+.lede strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* --- search --- */
+
+.search-row {
+  display: flex;
+  gap: 10px;
+  max-width: 440px;
+}
+
+.search-row input[type="text"] {
+  flex: 1;
+  font-family: var(--sans);
+  font-size: 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.search-row input[type="text"]::placeholder {
+  color: #a39d8d;
+}
+
+.search-row input[type="text"]:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 20px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background: var(--brass-deep);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.hint {
+  font-size: 13.5px;
+  color: #948e7e;
+  margin-top: 10px;
+}
+
+/* --- result card --- */
+
+.result {
+  margin-top: 34px;
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.result.visible {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brass);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+
+.card.not-found {
+  border-left-color: var(--ink-soft);
+}
+
+.card .to {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+.card p {
+  margin: 0 0 14px;
+  white-space: pre-line;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card .sign {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* --- divider --- */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 72px 0 56px;
+}
+
+/* --- leave a note section --- */
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 25px;
+  margin: 0 0 14px;
+}
+
+.note-copy {
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 0 0 28px;
+}
+
+.note-copy .private {
+  color: var(--green);
+  font-weight: 600;
+}
+
+form.note-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 7px;
+}
+
+form.note-form .field {
+  margin-bottom: 18px;
+}
+
+form.note-form input[type="text"],
+form.note-form textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+  resize: vertical;
+}
+
+form.note-form textarea {
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.field-note {
+  font-size: 13px;
+  color: #948e7e;
+  margin-top: 6px;
+}
+
+.form-status {
+  margin-top: 16px;
+  font-size: 15px;
+  display: none;
+}
+
+.form-status.show {
+  display: block;
+}
+
+.form-status.ok {
+  color: var(--green);
+}
+
+.form-status.err {
+  color: var(--error);
+}
+
+footer {
+  margin-top: 80px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  color: #a39d8d;
+}
