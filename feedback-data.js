@@ -17,20 +17,20 @@
  */
 
 const FEEDBACK_DATA = {
-  "Priya Sharma": {
+  "Vasanth": {
     message:
-      "You were the person I'd go to whenever a design decision felt half-baked — you'd ask the one question that made it obvious. That instinct is rare. Keep asking it.\n\nThank you for making the last two years sharper than they would've been without you.",
+      "You gave me room to make the harder call instead of the easier one, and backed me when it mattered. A good chunk of how I think about this work now, I owe to that.\n\nThank you for the trust — it wasn't lost on me.",
   },
 
-  "Arjun Rao": {
-    message:
-      "Your patience with the messiest parts of the codebase never stopped surprising me. You clean up after everyone and never once make it feel like a favour.\n\nWhoever inherits you on this team is lucky.",
-  },
+  "Chris Jhonson": {
+  message:
+    "Working with you was one of the better parts of this job — you asked sharp questions, pushed back when something didn't add up, and never once made that feel adversarial.\n\nThank you for the trust you put in the work. It made a real difference on my end.",
+},
 
-  "Neha Kapoor": {
-    message:
-      "You said something in a standup eight months ago that I still think about. I won't embarrass you by repeating it here — you know the one.\n\nGo build the thing you keep almost-pitching. It's good.",
-  },
+  "Nathan Quirk": {
+  message:
+    "Your technical depth always stood out, but what I valued more was how you thought through a problem — you had a way of reframing things that made the right approach obvious once you said it out loud.\n\nIt was a genuine pleasure working with you.",
+},
 };
 
 /**
