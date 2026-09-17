@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>A note before I go — Ismail Shaik</title>
-<meta name="description" content="A personal note from Ismail, and a private place to leave one back." />
+<title>Ismail Shaik — Senior Software Developer</title>
+<meta name="description" content="A note before I go, and a way to stay in touch." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -14,36 +14,45 @@
 <div class="wrap">
 
   <p class="mark">Ismail Shaik</p>
+  <p class="role">Senior Software Developer</p>
 
-  <h1>Before I sign off, one last thing.</h1>
+  <h1>Before I sign off, thank you.</h1>
 
   <p class="lede">
-    I wanted to leave a note for the people I worked with — and a way for you
-    to leave one back, if you want to. <strong>Type your name below</strong>
-    to find yours.
+    It's been a genuine privilege working with all of you. If you ever want
+    to stay in touch, here's how to reach me — and if you have a moment,
+    I'd love to hear from you below.
   </p>
 
-  <form id="search-form" class="search-row" autocomplete="off">
-    <input
-      type="text"
-      id="name-input"
-      placeholder="Your name, as people know you"
-      aria-label="Your name"
-      required
-    />
-    <button type="submit">Find my note</button>
-  </form>
-  <p class="hint">Case doesn't matter. Try your first and last name.</p>
-
-  <div id="result" class="result" aria-live="polite"></div>
+  <div class="contact-row">
+    <a class="contact-pill" href="https://www.linkedin.com/in/ismail416" target="_blank" rel="noopener">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M7 8.5V15M7 5.5V5.51M10.5 15V11C10.5 9.61929 11.6193 8.5 13 8.5C14.3807 8.5 15.5 9.61929 15.5 11V15M10.5 8.5V15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="3.5" y="3.5" width="13" height="13" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      LinkedIn
+    </a>
+    <a class="contact-pill" href="https://wa.me/919912787436" target="_blank" rel="noopener">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 16.5L4.9 13.4C4.19 12.16 3.85 10.74 4.05 9.28C4.53 5.77 7.66 3.14 11.2 3.42C14.4 3.68 16.94 6.22 17.2 9.42C17.5 13.1 14.58 16.24 10.94 16.24C9.7 16.24 8.5 15.9 7.47 15.28L4 16.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      WhatsApp
+    </a>
+    <a class="contact-pill" href="tel:+919912787436">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 3.5H8.2L9.4 7L7.6 8.2C8.3 9.9 9.6 11.2 11.3 11.9L12.5 10.1L16 11.3V13.5C16 14.6 15.1 15.5 14 15.4C9.1 15 4.5 10.4 4.1 5.5C4 4.4 4.9 3.5 6 3.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      +91 XXXXX XXXXX
+    </a>
+  </div>
 
   <hr class="divider" />
 
-  <h2>Leave me a note back</h2>
+  <h2>Leave me a note</h2>
   <p class="note-copy">
     Anything you'd want to say — a memory, feedback, something you never got
-    around to mentioning. <span class="private">It comes straight to me and
-    isn't shown on this page to anyone</span>, including you, once it's sent.
+    around to mentioning. <span class="private">It comes straight to me privately</span>,
+    no one else will read it, not even you once it's sent..
   </p>
 
   <form class="note-form" id="note-form">
@@ -54,31 +63,25 @@
     <div class="field">
       <label for="message">Your note</label>
       <textarea id="message" name="message" required placeholder="Say whatever you'd like..."></textarea>
-      <p class="field-note">Only I will read this. It's never displayed on this page.</p>
+      <p class="field-note">Only I will read this.</p>
     </div>
     <button type="submit" id="note-submit">Send it privately</button>
     <p class="form-status" id="form-status" role="status"></p>
   </form>
-
-  <footer>— Ismail</footer>
+  <footer>— Ismail Shaik</footer>
 
 </div>
 
-<script src="feedback-data.js"></script>
 <script>
   // ---------- private inbox (Google Form — free, no submission cap) ----------
-  // Both the "leave a note back" form and the "missing name" signal post
-  // here. Google Forms has no volume limit, unlike free-tier form services,
-  // so there's no quota to exhaust even if a lot of people click around.
-  //
   // Set these three after creating your form — see README.md for exact
   // steps to find each entry ID.
 
   const INBOX_FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSfxCGSOdntWb3taomcjcuwnT1UdTfphdJ_nO7KEo9-x25knIA/formResponse";
-  const ENTRY_TYPE = "entry.1158257622"; // "Note back" or "Missing name"
-  const ENTRY_NAME = "entry.74463776"; // sender's name, or the searched name
-  const ENTRY_MESSAGE = "entry.601305625"; // the note itself, or blank
+  const ENTRY_TYPE = "entry.1158257622";
+  const ENTRY_NAME = "entry.74463776";
+  const ENTRY_MESSAGE = "entry.601305625";
 
   const INBOX_CONFIGURED = !INBOX_FORM_URL.includes("YOUR_FORM_ID");
 
@@ -88,211 +91,12 @@
     body.set(ENTRY_TYPE, type);
     body.set(ENTRY_NAME, name || "");
     body.set(ENTRY_MESSAGE, message || "");
-    // Google Forms doesn't send CORS headers back, so the response is
-    // opaque — "no-cors" lets the request go through without erroring on
-    // that. It also means we can't confirm success from the response
-    // itself; a resolved fetch is the closest signal we get.
     return fetch(INBOX_FORM_URL, {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
     });
-  }
-
-  // ---------- name search ----------
-
-  // A Google Sheet published as CSV, so notes can be added by editing a
-  // spreadsheet — no code change or redeploy needed for that. Paste the
-  // "Publish to web" CSV link here. Expected columns: Name, Message.
-  const SHEET_CSV_URL = "PASTE_YOUR_PUBLISHED_SHEET_CSV_LINK_HERE";
-
-  function normalize(str) {
-    return str.trim().toLowerCase().replace(/\s+/g, " ");
-  }
-
-  // Minimal RFC4180-ish CSV parser — handles quoted fields, commas and
-  // newlines inside quotes, and "" as an escaped quote. Good enough for
-  // what Google Sheets exports.
-  function parseCSV(text) {
-    const rows = [];
-    let row = [];
-    let field = "";
-    let inQuotes = false;
-
-    for (let i = 0; i < text.length; i++) {
-      const c = text[i];
-      if (inQuotes) {
-        if (c === '"' && text[i + 1] === '"') {
-          field += '"';
-          i++;
-        } else if (c === '"') {
-          inQuotes = false;
-        } else {
-          field += c;
-        }
-      } else if (c === '"') {
-        inQuotes = true;
-      } else if (c === ",") {
-        row.push(field);
-        field = "";
-      } else if (c === "\n" || c === "\r") {
-        if (c === "\r" && text[i + 1] === "\n") i++;
-        row.push(field);
-        rows.push(row);
-        row = [];
-        field = "";
-      } else {
-        field += c;
-      }
-    }
-    if (field.length || row.length) {
-      row.push(field);
-      rows.push(row);
-    }
-    return rows.filter((r) => r.some((cell) => cell.trim() !== ""));
-  }
-
-  // Lookup keyed by normalized name. Starts from the local fallback file
-  // (feedback-data.js) so the page still works if the live sheet can't be
-  // reached; entries from the sheet then take priority when both exist.
-  let LOOKUP = {};
-  Object.keys(FEEDBACK_DATA).forEach((name) => {
-    LOOKUP[normalize(name)] = { displayName: name, message: FEEDBACK_DATA[name].message };
-  });
-
-  async function loadLiveNotes() {
-    if (!SHEET_CSV_URL || SHEET_CSV_URL.includes("PASTE_YOUR")) return;
-    try {
-      const bust = SHEET_CSV_URL.includes("?") ? "&" : "?";
-      const res = await fetch(SHEET_CSV_URL + bust + "_=" + Date.now());
-      if (!res.ok) throw new Error("bad response");
-      const rows = parseCSV(await res.text());
-      if (rows.length < 2) return;
-
-      const header = rows[0].map((h) => h.trim().toLowerCase());
-      const nameIdx = header.indexOf("name");
-      const msgIdx = header.indexOf("message");
-      if (nameIdx === -1 || msgIdx === -1) return;
-
-      rows.slice(1).forEach((r) => {
-        const name = (r[nameIdx] || "").trim();
-        const message = (r[msgIdx] || "").trim();
-        if (name && message) {
-          LOOKUP[normalize(name)] = { displayName: name, message };
-        }
-      });
-    } catch (err) {
-      // Live sheet unreachable — silently keep the local fallback data.
-    }
-  }
-
-  const dataReady = loadLiveNotes();
-
-  const searchForm = document.getElementById("search-form");
-  const nameInput = document.getElementById("name-input");
-  const resultEl = document.getElementById("result");
-  const searchButton = searchForm.querySelector("button");
-
-  searchButton.disabled = true;
-  searchButton.textContent = "Loading...";
-  dataReady.finally(() => {
-    searchButton.disabled = false;
-    searchButton.textContent = "Find my note";
-  });
-
-  function renderCard({ toName, message, found }) {
-    const safeName = toName ? escapeHtml(toName) : "";
-    const safeMessage = escapeHtml(message);
-    resultEl.innerHTML = `
-      <div class="card ${found ? "" : "not-found"}">
-        ${found ? `<p class="to">For ${safeName}</p>` : ""}
-        <p>${safeMessage}</p>
-        <p class="sign">— Ismail</p>
-      </div>
-    `;
-    // restart the reveal animation even on repeated searches
-    resultEl.classList.remove("visible");
-    // eslint-disable-next-line no-unused-expressions
-    resultEl.offsetHeight;
-    resultEl.classList.add("visible");
-  }
-
-  function escapeHtml(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  // Turns "anil kumar" into "Anil Kumar" for a nicer greeting. Purely
-  // cosmetic — matching against FEEDBACK_DATA / the live sheet still
-  // ignores case entirely.
-  function toTitleCase(str) {
-    return str.replace(/\S+/g, (word) => word[0].toUpperCase() + word.slice(1));
-  }
-
-  // Simple deterministic hash so the same searched name always lands on
-  // the same fallback line — feels chosen, not re-rolled on every visit.
-  function hashString(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = (hash << 5) - hash + str.charCodeAt(i);
-      hash |= 0;
-    }
-    return Math.abs(hash);
-  }
-
-  function fallbackMessageFor(rawName) {
-    const pick = FALLBACK_MESSAGES[hashString(normalize(rawName)) % FALLBACK_MESSAGES.length];
-    return `Hey ${toTitleCase(rawName)}, I didn't get the chance to write you something of your own — but here's something true anyway:\n\n${pick}`;
-  }
-
-  searchForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const raw = nameInput.value.trim();
-    if (!raw) return;
-
-    await dataReady;
-    const query = normalize(raw);
-
-    const match = LOOKUP[query];
-    if (match) {
-      renderCard({ toName: match.displayName, message: match.message, found: true });
-    } else {
-      renderCard({ message: fallbackMessageFor(raw), found: false });
-      signalMissingNote(raw);
-    }
-  });
-
-  // ---------- signal missing notes back to Ismail ----------
-  // When someone searches and there's no note for them yet, quietly log it
-  // to the inbox so Ismail knows who to write for — no need to pre-write
-  // everyone. Deduped per browser via localStorage: repeat searches for the
-  // same name from the same visitor won't add more rows.
-
-  function signalMissingNote(name) {
-    if (!name || !INBOX_CONFIGURED) return;
-
-    const seenKey = "signoff_missing_signals";
-    let seen = [];
-    try {
-      seen = JSON.parse(localStorage.getItem(seenKey)) || [];
-    } catch (err) {
-      seen = [];
-    }
-    const key = normalize(name);
-    if (seen.includes(key)) return;
-
-    submitToInbox("Missing name", name, "").catch(() => {
-      /* best-effort — a failed signal shouldn't affect the visitor's experience */
-    });
-
-    seen.push(key);
-    try {
-      localStorage.setItem(seenKey, JSON.stringify(seen));
-    } catch (err) {
-      /* ignore storage errors (e.g. private browsing) */
-    }
   }
 
   // ---------- private note form ----------
@@ -319,7 +123,7 @@
       const message = document.getElementById("message").value.trim();
       await submitToInbox("Note back", fromName, message);
       noteForm.reset();
-      formStatus.textContent = "Sent. Thank you — only Ismail will see this.";
+      formStatus.textContent = "Sent. Thank you — only I will see this.";
       formStatus.className = "form-status show ok";
     } catch (err) {
       formStatus.textContent = "Couldn't send that — check your connection and try again.";
